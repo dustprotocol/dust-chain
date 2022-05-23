@@ -21,8 +21,8 @@ pub type BlockNumber = u64;
 pub const ALICE: AccountId = AccountId::new([1u8; 32]);
 pub const BOB: AccountId = AccountId::new([2u8; 32]);
 
-pub const REEF: CurrencyId = CurrencyId::Token(TokenSymbol::REEF);
-pub const RUSD: CurrencyId = CurrencyId::Token(TokenSymbol::RUSD);
+pub const DUST: CurrencyId = CurrencyId::Token(TokenSymbol::DUST);
+pub const USDD: CurrencyId = CurrencyId::Token(TokenSymbol::USDD);
 
 parameter_types! {
 	pub const BlockHashCount: u64 = 250;
@@ -146,7 +146,7 @@ where
 }
 
 parameter_types! {
-	pub const GetNativeCurrencyId: CurrencyId = REEF;
+	pub const GetNativeCurrencyId: CurrencyId = DUST;
 }
 
 impl module_currencies::Config for Runtime {
@@ -167,8 +167,8 @@ ord_parameter_types! {
 }
 
 parameter_types! {
-	pub AllNonNativeCurrencyIds: Vec<CurrencyId> = vec![RUSD];
-	pub const StableCurrencyId: CurrencyId = RUSD;
+	pub AllNonNativeCurrencyIds: Vec<CurrencyId> = vec![USDD];
+	pub const StableCurrencyId: CurrencyId = USDD;
 	pub static TransactionByteFee: u128 = 1;
 }
 
@@ -230,7 +230,7 @@ pub struct ExtBuilder {
 impl Default for ExtBuilder {
 	fn default() -> Self {
 		Self {
-			endowed_accounts: vec![(ALICE, RUSD, 10000)],
+			endowed_accounts: vec![(ALICE, USDD, 10000)],
 			base_weight: 0,
 			byte_fee: 2,
 			weight_to_fee: 1,

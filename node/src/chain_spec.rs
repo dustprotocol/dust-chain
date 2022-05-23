@@ -1,10 +1,10 @@
 use sp_core::{Pair, Public, sr25519, H160, Bytes};
-use reef_runtime::{
+use dust_runtime::{
 	AccountId, CurrencyId,
 	BabeConfig, BalancesConfig, GenesisConfig, SudoConfig, SystemConfig,
 	IndicesConfig, EVMConfig, StakingConfig, SessionConfig, AuthorityDiscoveryConfig,
 	WASM_BINARY,
-	TokenSymbol, TokensConfig, REEF,
+	TokenSymbol, TokensConfig, DUST,
 	StakerStatus,
 	ImOnlineId, AuthorityDiscoveryId,
 	MaxNativeTokenExistentialDeposit,
@@ -25,8 +25,8 @@ use serde::{Deserialize, Serialize};
 use hex_literal::hex;
 use sp_core::{crypto::UncheckedInto, bytes::from_hex};
 
-use reef_primitives::{AccountPublic, Balance, Nonce};
-use reef_runtime::BABE_GENESIS_EPOCH_CONFIG;
+use dust_primitives::{AccountPublic, Balance, Nonce};
+use dust_runtime::BABE_GENESIS_EPOCH_CONFIG;
 
 // The URL for the telemetry server.
 const TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit/";
@@ -39,9 +39,9 @@ const TELEMETRY_URL: &str = "wss://telemetry.polkadot.io/submit/";
 #[serde(rename_all = "camelCase")]
 pub struct Extensions {
 	/// Block numbers with known hashes.
-	pub fork_blocks: sc_client_api::ForkBlocks<reef_primitives::Block>,
+	pub fork_blocks: sc_client_api::ForkBlocks<dust_primitives::Block>,
 	/// Known bad block hashes.
-	pub bad_blocks: sc_client_api::BadBlocks<reef_primitives::Block>,
+	pub bad_blocks: sc_client_api::BadBlocks<dust_primitives::Block>,
 }
 
 /// Specialized `ChainSpec`. This is a specialization of the general Substrate ChainSpec type.
@@ -115,7 +115,7 @@ pub fn development_config() -> Result<ChainSpec, String> {
 		// Protocol ID
 		None,
 		// Properties
-		Some(reef_properties()),
+		Some(dust_properties()),
 		// Extensions
 		Default::default(),
 	))
@@ -160,9 +160,9 @@ pub fn local_testnet_config() -> Result<ChainSpec, String> {
 		// TelemetryEndpoints::new(vec![(TELEMETRY_URL.into(), 0)]).ok(),
 		None,
 		// Protocol ID
-		Some("reef_local_testnet"),
+		Some("dust_local_testnet"),
 		// Properties
-		Some(reef_properties()),
+		Some(dust_properties()),
 		// Extensions
 		Default::default(),
 	))
@@ -172,9 +172,9 @@ pub fn public_testnet_config() -> Result<ChainSpec, String> {
 	let wasm_binary = WASM_BINARY.ok_or_else(|| "WASM binary not available".to_string())?;
 	Ok(ChainSpec::from_genesis(
 		// Name
-		"Reef Testnet",
+		"Dust Testnet",
 		// ID
-		"reef_testnet",
+		"dust_testnet",
 		ChainType::Live,
 		move || testnet_genesis(
 			wasm_binary,
@@ -221,13 +221,13 @@ pub fn public_testnet_config() -> Result<ChainSpec, String> {
 			],
 		),
 		// Bootnodes
-		vec!["/dns/bootnode-t1.reefscan.com/tcp/30334/p2p/12D3KooWKmFtS7BFtkkKWrP5ZcCpPFokmST2JFXFSsVBNeW5SXWg".parse().unwrap()],
+		vec!["/dns/bootnode-t1.dustscan.com/tcp/30334/p2p/12D3KooWKmFtS7BFtkkKWrP5ZcCpPFokmST2JFXFSsVBNeW5SXWg".parse().unwrap()],
 		// Telemetry
 		TelemetryEndpoints::new(vec![(TELEMETRY_URL.into(), 0)]).ok(),
 		// Protocol ID
-		Some("reef_testnet"),
+		Some("dust_testnet"),
 		// Properties
-		Some(reef_properties()),
+		Some(dust_properties()),
 		// Extensions
 		Default::default(),
 	))
@@ -246,9 +246,9 @@ pub fn mainnet_config() -> Result<ChainSpec, String> {
 	let wasm_binary = WASM_BINARY.ok_or_else(|| "WASM binary not available".to_string())?;
 	Ok(ChainSpec::from_genesis(
 		// Name
-		"Reef Mainnet",
+		"Dust Mainnet",
 		// ID
-		"reef_mainnet",
+		"dust_mainnet",
 		ChainType::Live,
 		move || mainnet_genesis(
 			wasm_binary,
@@ -308,16 +308,16 @@ pub fn mainnet_config() -> Result<ChainSpec, String> {
 		),
 		// Bootnodes
 		vec![
-			"/dns/bootnode.reefscan.com/tcp/30333/p2p/12D3KooWFHSc9cUcyNtavUkLg4VBAeBnYNgy713BnovUa9WNY5pp".parse().unwrap(),
-			"/dns/bootnode.reef.finance/tcp/30333/p2p/12D3KooWAQqcXvcvt4eVEgogpDLAdGWgR5bY1drew44We6FfJAYq".parse().unwrap(),
-			"/dns/bootnode.reef-chain.com/tcp/30333/p2p/12D3KooWCT7rnUmEK7anTp7svwr4GTs6k3XXnSjmgTcNvdzWzgWU".parse().unwrap(),
+			"/dns/bootnode.dustscan.com/tcp/30333/p2p/12D3KooWFHSc9cUcyNtavUkLg4VBAeBnYNgy713BnovUa9WNY5pp".parse().unwrap(),
+			"/dns/bootnode.dust.llc/tcp/30333/p2p/12D3KooWAQqcXvcvt4eVEgogpDLAdGWgR5bY1drew44We6FfJAYq".parse().unwrap(),
+			"/dns/bootnode.dust-chain.com/tcp/30333/p2p/12D3KooWCT7rnUmEK7anTp7svwr4GTs6k3XXnSjmgTcNvdzWzgWU".parse().unwrap(),
 		],
 		// Telemetry
 		TelemetryEndpoints::new(vec![(TELEMETRY_URL.into(), 0)]).ok(),
 		// Protocol ID
-		Some("reef_mainnet"),
+		Some("dust_mainnet"),
 		// Properties
-		Some(reef_properties()),
+		Some(dust_properties()),
 		// Extensions
 		Default::default(),
 	))
@@ -332,8 +332,8 @@ fn testnet_genesis(
 
 	let evm_genesis_accounts = evm_genesis();
 
-	const INITIAL_BALANCE: u128 = 100_000_000 * REEF;
-	const INITIAL_STAKING: u128 =   1_000_000 * REEF;
+	const INITIAL_BALANCE: u128 = 100_000_000 * DUST;
+	const INITIAL_STAKING: u128 =   1_000_000 * DUST;
 	let existential_deposit = MaxNativeTokenExistentialDeposit::get();
 
 	let balances = initial_authorities
@@ -403,7 +403,7 @@ fn testnet_genesis(
 				.iter()
 				.flat_map(|x| {
 					vec![
-						(x.clone(), CurrencyId::Token(TokenSymbol::RUSD), INITIAL_BALANCE),
+						(x.clone(), CurrencyId::Token(TokenSymbol::USDD), INITIAL_BALANCE),
 					]
 				})
 				.collect(),
@@ -425,13 +425,13 @@ fn mainnet_genesis(
 
 	let evm_genesis_accounts = evm_genesis();
 
-	const INITIAL_STAKING: u128 = 1_000_000 * REEF;
+	const INITIAL_STAKING: u128 = 1_000_000 * DUST;
 	let existential_deposit = MaxNativeTokenExistentialDeposit::get();
 
 	let balances = initial_authorities
 		.iter()
 		.map(|x| (x.0.clone(), INITIAL_STAKING*2))
-		.chain(endowed_accounts.iter().cloned().map(|x| (x.0.clone(), x.1 * REEF)))
+		.chain(endowed_accounts.iter().cloned().map(|x| (x.0.clone(), x.1 * DUST)))
 		.chain(
 			get_all_module_accounts()
 				.iter()
@@ -503,11 +503,11 @@ fn mainnet_genesis(
 
 
 /// Token
-pub fn reef_properties() -> Properties {
+pub fn dust_properties() -> Properties {
 	let mut p = Properties::new();
 	p.insert("ss58format".into(), 42.into());
 	p.insert("tokenDecimals".into(), 18.into());
-	p.insert("tokenSymbol".into(), "REEF".into());
+	p.insert("tokenSymbol".into(), "DUST".into());
 	p
 }
 

@@ -80,8 +80,8 @@ impl tokens::Config for Runtime {
 	type MaxLocks = MaxLocks;
 }
 
-pub const NATIVE_CURRENCY_ID: CurrencyId = CurrencyId::Token(TokenSymbol::REEF);
-pub const X_TOKEN_ID: CurrencyId = CurrencyId::Token(TokenSymbol::RUSD);
+pub const NATIVE_CURRENCY_ID: CurrencyId = CurrencyId::Token(TokenSymbol::DUST);
+pub const X_TOKEN_ID: CurrencyId = CurrencyId::Token(TokenSymbol::USDD);
 
 parameter_types! {
 	pub const GetNativeCurrencyId: CurrencyId = NATIVE_CURRENCY_ID;

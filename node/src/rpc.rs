@@ -13,7 +13,7 @@ use sp_block_builder::BlockBuilder;
 pub use sc_rpc_api::DenyUnsafe;
 use sc_transaction_pool_api::TransactionPool;
 
-use reef_runtime::{
+use dust_runtime::{
 	AccountId, Balance, Nonce, BlockNumber, Hash,
 	opaque::Block,
 };

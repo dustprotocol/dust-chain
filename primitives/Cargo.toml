@@ -1,5 +1,5 @@
 [package]
-name = "reef-primitives"
+name = "dust-primitives"
 version = "0.7.3"
 authors = ["Reef Developers"]
 edition = "2018"

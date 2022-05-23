@@ -18,7 +18,7 @@ jobs:
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          target/release/reef-node
+          target/release/dust-node
           LICENSE
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

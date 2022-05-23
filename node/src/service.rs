@@ -3,7 +3,7 @@
 use std::sync::Arc;
 use std::time::Duration;
 use sc_client_api::{ExecutorProvider, RemoteBackend};
-use reef_runtime::{self, opaque::Block, RuntimeApi};
+use dust_runtime::{self, opaque::Block, RuntimeApi};
 use sc_service::{error::Error as ServiceError, Configuration, TaskManager};
 use sc_executor::native_executor_instance;
 pub use sc_executor::NativeExecutor;
@@ -16,8 +16,8 @@ use sc_finality_grandpa::FinalityProofProvider;
 // Our native executor instance.
 native_executor_instance!(
 	pub Executor,
-	reef_runtime::api::dispatch,
-	reef_runtime::native_version,
+	dust_runtime::api::dispatch,
+	dust_runtime::native_version,
 	frame_benchmarking::benchmarking::HostFunctions,
 );
 

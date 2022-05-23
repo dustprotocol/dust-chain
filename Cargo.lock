@@ -1320,6 +1320,149 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "9ea835d29036a4087793836fa931b08837ad5e957da9e23886b29586fb9b6650"
 
 [[package]]
+name = "dust-node"
+version = "4.0.0"
+dependencies = [
+ "dust-primitives",
+ "dust-runtime",
+ "evm-rpc",
+ "frame-benchmarking",
+ "frame-benchmarking-cli",
+ "hex-literal 0.3.1",
+ "jsonrpc-core",
+ "module-evm",
+ "module-evm-rpc-runtime-api",
+ "node-runtime",
+ "pallet-transaction-payment-rpc",
+ "sc-basic-authorship",
+ "sc-chain-spec",
+ "sc-cli",
+ "sc-client-api",
+ "sc-consensus",
+ "sc-consensus-babe",
+ "sc-consensus-babe-rpc",
+ "sc-consensus-epochs",
+ "sc-consensus-manual-seal",
+ "sc-consensus-slots",
+ "sc-executor",
+ "sc-finality-grandpa",
+ "sc-finality-grandpa-rpc",
+ "sc-keystore",
+ "sc-rpc",
+ "sc-rpc-api",
+ "sc-service",
+ "sc-telemetry",
+ "sc-transaction-pool",
+ "sc-transaction-pool-api",
+ "serde",
+ "serde_json",
+ "sp-api",
+ "sp-block-builder",
+ "sp-blockchain",
+ "sp-consensus",
+ "sp-consensus-babe",
+ "sp-core",
+ "sp-finality-grandpa",
+ "sp-inherents",
+ "sp-keystore",
+ "sp-runtime",
+ "sp-std",
+ "sp-timestamp",
+ "sp-transaction-pool",
+ "structopt",
+ "substrate-build-script-utils",
+ "substrate-frame-rpc-system",
+]
+
+[[package]]
+name = "dust-primitives"
+version = "0.7.3"
+dependencies = [
+ "ethereum-types",
+ "evm",
+ "frame-support",
+ "parity-scale-codec",
+ "serde",
+ "sp-core",
+ "sp-io",
+ "sp-runtime",
+ "sp-std",
+]
+
+[[package]]
+name = "dust-runtime"
+version = "4.0.0"
+dependencies = [
+ "dust-primitives",
+ "evm",
+ "frame-benchmarking",
+ "frame-election-provider-support",
+ "frame-executive",
+ "frame-support",
+ "frame-system",
+ "frame-system-benchmarking",
+ "frame-system-rpc-runtime-api",
+ "hex",
+ "hex-literal 0.3.1",
+ "libsecp256k1",
+ "log",
+ "module-currencies",
+ "module-evm",
+ "module-evm-accounts",
+ "module-evm-bridge",
+ "module-evm-rpc-runtime-api",
+ "module-poc",
+ "module-support",
+ "module-transaction-payment",
+ "orml-authority",
+ "orml-benchmarking",
+ "orml-tokens",
+ "orml-traits",
+ "pallet-authority-discovery",
+ "pallet-authorship",
+ "pallet-babe",
+ "pallet-balances",
+ "pallet-collective",
+ "pallet-grandpa",
+ "pallet-identity",
+ "pallet-im-online",
+ "pallet-indices",
+ "pallet-multisig",
+ "pallet-offences",
+ "pallet-randomness-collective-flip",
+ "pallet-scheduler",
+ "pallet-session",
+ "pallet-staking",
+ "pallet-staking-reward-curve",
+ "pallet-sudo",
+ "pallet-timestamp",
+ "pallet-transaction-payment",
+ "pallet-transaction-payment-rpc-runtime-api",
+ "pallet-utility",
+ "parity-scale-codec",
+ "runtime-common",
+ "serde",
+ "serde_json",
+ "smallvec 1.6.1",
+ "sp-api",
+ "sp-application-crypto",
+ "sp-authority-discovery",
+ "sp-block-builder",
+ "sp-consensus-babe",
+ "sp-core",
+ "sp-inherents",
+ "sp-io",
+ "sp-offchain",
+ "sp-runtime",
+ "sp-session",
+ "sp-staking",
+ "sp-std",
+ "sp-transaction-pool",
+ "sp-version",
+ "substrate-wasm-builder",
+]
+
+[[package]]
 name = "dyn-clonable"
 version = "0.9.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -3767,6 +3910,7 @@ name = "module-currencies"
 version = "0.7.3"
 dependencies = [
  "clear_on_drop",
+ "dust-primitives",
  "frame-support",
  "frame-system",
  "module-evm",
@@ -3778,7 +3922,6 @@ dependencies = [
  "pallet-balances",
  "pallet-timestamp",
  "parity-scale-codec",
- "reef-primitives",
  "serde",
  "sp-core",
  "sp-io",
@@ -3790,6 +3933,7 @@ dependencies = [
 name = "module-evm"
 version = "0.7.3"
 dependencies = [
+ "dust-primitives",
  "env_logger",
  "evm",
  "evm-gasometer",
@@ -3806,7 +3950,6 @@ dependencies = [
  "pallet-timestamp",
  "parity-scale-codec",
  "primitive-types",
- "reef-primitives",
  "ripemd160",
  "rlp",
  "serde",
@@ -3822,6 +3965,7 @@ dependencies = [
 name = "module-evm-accounts"
 version = "0.7.3"
 dependencies = [
+ "dust-primitives",
  "frame-support",
  "frame-system",
  "libsecp256k1",
@@ -3831,7 +3975,6 @@ dependencies = [
  "orml-traits",
  "pallet-balances",
  "parity-scale-codec",
- "reef-primitives",
  "serde",
  "sp-core",
  "sp-io",
@@ -3843,6 +3986,7 @@ dependencies = [
 name = "module-evm-bridge"
 version = "0.7.3"
 dependencies = [
+ "dust-primitives",
  "ethereum-types",
  "frame-support",
  "frame-system",
@@ -3854,7 +3998,6 @@ dependencies = [
  "pallet-timestamp",
  "parity-scale-codec",
  "primitive-types",
- "reef-primitives",
  "serde",
  "sha3 0.8.2",
  "sp-core",
@@ -3867,8 +4010,8 @@ dependencies = [
 name = "module-evm-rpc-runtime-api"
 version = "0.1.0"
 dependencies = [
+ "dust-primitives",
  "ethereum-types",
- "reef-primitives",
  "sp-api",
  "sp-core",
  "sp-runtime",
@@ -3892,13 +4035,13 @@ dependencies = [
 name = "module-poc"
 version = "0.1.0"
 dependencies = [
+ "dust-primitives",
  "frame-benchmarking",
  "frame-support",
  "frame-system",
  "pallet-balances",
  "pallet-collective",
  "parity-scale-codec",
- "reef-primitives",
  "serde",
  "sp-core",
  "sp-io",
@@ -3910,12 +4053,12 @@ dependencies = [
 name = "module-support"
 version = "0.7.3"
 dependencies = [
+ "dust-primitives",
  "ethereum-types",
  "frame-support",
  "impl-trait-for-tuples 0.2.1",
  "orml-traits",
  "parity-scale-codec",
- "reef-primitives",
  "sp-core",
  "sp-runtime",
  "sp-std",
@@ -3925,6 +4068,7 @@ dependencies = [
 name = "module-transaction-payment"
 version = "0.7.3"
 dependencies = [
+ "dust-primitives",
  "frame-support",
  "frame-system",
  "log",
@@ -3936,7 +4080,6 @@ dependencies = [
  "pallet-proxy",
  "pallet-transaction-payment-rpc-runtime-api",
  "parity-scale-codec",
- "reef-primitives",
  "serde",
  "smallvec 1.6.1",
  "sp-core",
@@ -5986,149 +6129,6 @@ dependencies = [
 ]
 
 [[package]]
-name = "reef-node"
-version = "4.0.0"
-dependencies = [
- "evm-rpc",
- "frame-benchmarking",
- "frame-benchmarking-cli",
- "hex-literal 0.3.1",
- "jsonrpc-core",
- "module-evm",
- "module-evm-rpc-runtime-api",
- "node-runtime",
- "pallet-transaction-payment-rpc",
- "reef-primitives",
- "reef-runtime",
- "sc-basic-authorship",
- "sc-chain-spec",
- "sc-cli",
- "sc-client-api",
- "sc-consensus",
- "sc-consensus-babe",
- "sc-consensus-babe-rpc",
- "sc-consensus-epochs",
- "sc-consensus-manual-seal",
- "sc-consensus-slots",
- "sc-executor",
- "sc-finality-grandpa",
- "sc-finality-grandpa-rpc",
- "sc-keystore",
- "sc-rpc",
- "sc-rpc-api",
- "sc-service",
- "sc-telemetry",
- "sc-transaction-pool",
- "sc-transaction-pool-api",
- "serde",
- "serde_json",
- "sp-api",
- "sp-block-builder",
- "sp-blockchain",
- "sp-consensus",
- "sp-consensus-babe",
- "sp-core",
- "sp-finality-grandpa",
- "sp-inherents",
- "sp-keystore",
- "sp-runtime",
- "sp-std",
- "sp-timestamp",
- "sp-transaction-pool",
- "structopt",
- "substrate-build-script-utils",
- "substrate-frame-rpc-system",
-]
-
-[[package]]
-name = "reef-primitives"
-version = "0.7.3"
-dependencies = [
- "ethereum-types",
- "evm",
- "frame-support",
- "parity-scale-codec",
- "serde",
- "sp-core",
- "sp-io",
- "sp-runtime",
- "sp-std",
-]
-
-[[package]]
-name = "reef-runtime"
-version = "4.0.0"
-dependencies = [
- "evm",
- "frame-benchmarking",
- "frame-election-provider-support",
- "frame-executive",
- "frame-support",
- "frame-system",
- "frame-system-benchmarking",
- "frame-system-rpc-runtime-api",
- "hex",
- "hex-literal 0.3.1",
- "libsecp256k1",
- "log",
- "module-currencies",
- "module-evm",
- "module-evm-accounts",
- "module-evm-bridge",
- "module-evm-rpc-runtime-api",
- "module-poc",
- "module-support",
- "module-transaction-payment",
- "orml-authority",
- "orml-benchmarking",
- "orml-tokens",
- "orml-traits",
- "pallet-authority-discovery",
- "pallet-authorship",
- "pallet-babe",
- "pallet-balances",
- "pallet-collective",
- "pallet-grandpa",
- "pallet-identity",
- "pallet-im-online",
- "pallet-indices",
- "pallet-multisig",
- "pallet-offences",
- "pallet-randomness-collective-flip",
- "pallet-scheduler",
- "pallet-session",
- "pallet-staking",
- "pallet-staking-reward-curve",
- "pallet-sudo",
- "pallet-timestamp",
- "pallet-transaction-payment",
- "pallet-transaction-payment-rpc-runtime-api",
- "pallet-utility",
- "parity-scale-codec",
- "reef-primitives",
- "runtime-common",
- "serde",
- "serde_json",
- "smallvec 1.6.1",
- "sp-api",
- "sp-application-crypto",
- "sp-authority-discovery",
- "sp-block-builder",
- "sp-consensus-babe",
- "sp-core",
- "sp-inherents",
- "sp-io",
- "sp-offchain",
- "sp-runtime",
- "sp-session",
- "sp-staking",
- "sp-std",
- "sp-transaction-pool",
- "sp-version",
- "substrate-wasm-builder",
-]
-
-[[package]]
 name = "ref-cast"
 version = "1.0.6"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6295,6 +6295,7 @@ dependencies = [
 name = "runtime-common"
 version = "0.7.3"
 dependencies = [
+ "dust-primitives",
  "frame-support",
  "frame-system",
  "hex-literal 0.3.1",
@@ -6312,7 +6313,6 @@ dependencies = [
  "pallet-timestamp",
  "pallet-utility",
  "parity-scale-codec",
- "reef-primitives",
  "serde",
  "serde_json",
  "sp-core",

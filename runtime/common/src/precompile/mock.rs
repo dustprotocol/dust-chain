@@ -97,11 +97,11 @@ impl pallet_balances::Config for Test {
 	type ReserveIdentifier = [u8; 8];
 }
 
-pub const REEF: CurrencyId = CurrencyId::Token(TokenSymbol::REEF);
-pub const RUSD: CurrencyId = CurrencyId::Token(TokenSymbol::RUSD);
+pub const DUST: CurrencyId = CurrencyId::Token(TokenSymbol::DUST);
+pub const USDD: CurrencyId = CurrencyId::Token(TokenSymbol::USDD);
 
 parameter_types! {
-	pub const GetNativeCurrencyId: CurrencyId = REEF;
+	pub const GetNativeCurrencyId: CurrencyId = DUST;
 }
 
 impl module_currencies::Config for Test {
@@ -119,8 +119,8 @@ impl module_evm_bridge::Config for Test {
 
 parameter_types! {
 	pub const TransactionByteFee: Balance = 10;
-	pub const GetStableCurrencyId: CurrencyId = CurrencyId::Token(TokenSymbol::RUSD);
-	pub AllNonNativeCurrencyIds: Vec<CurrencyId> = vec![CurrencyId::Token(TokenSymbol::RUSD)];
+	pub const GetStableCurrencyId: CurrencyId = CurrencyId::Token(TokenSymbol::USDD);
+	pub AllNonNativeCurrencyIds: Vec<CurrencyId> = vec![CurrencyId::Token(TokenSymbol::USDD)];
 }
 
 impl module_transaction_payment::Config for Test {
@@ -302,7 +302,7 @@ pub fn evm_genesis() -> BTreeMap<H160, module_evm::GenesisAccount<Balance, u64>>
 }
 
 pub const INITIAL_BALANCE: Balance = 1_000_000_000_000;
-pub const REEF_ERC20_ADDRESS: &str = "0x0000000000000000000000000000000001000000";
+pub const DUST_ERC20_ADDRESS: &str = "0x0000000000000000000000000000000001000000";
 
 type UncheckedExtrinsic = frame_system::mocking::MockUncheckedExtrinsic<Test>;
 type Block = frame_system::mocking::MockBlock<Test>;
@@ -372,15 +372,15 @@ pub fn new_test_ext() -> sp_io::TestExternalities {
 		assert_ok!(Currencies::update_balance(
 			Origin::root(),
 			ALICE,
-			REEF,
+			DUST,
 			1_000_000_000_000
 		));
-		assert_ok!(Currencies::update_balance(Origin::root(), ALICE, RUSD, 1_000_000_000));
+		assert_ok!(Currencies::update_balance(Origin::root(), ALICE, USDD, 1_000_000_000));
 
 		assert_ok!(Currencies::update_balance(
 			Origin::root(),
 			MockAddressMapping::get_account_id(&alice()),
-			RUSD,
+			USDD,
 			1_000
 		));
 	});

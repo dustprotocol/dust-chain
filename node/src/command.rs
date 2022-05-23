@@ -19,11 +19,11 @@ use crate::{chain_spec, service};
 use crate::cli::{Cli, Subcommand};
 use sc_cli::{SubstrateCli, RuntimeVersion, Role, ChainSpec};
 use sc_service::PartialComponents;
-use reef_runtime::Block;
+use dust_runtime::Block;
 
 impl SubstrateCli for Cli {
 	fn impl_name() -> String {
-		"Reef Chain Node".into()
+		"Dust Chain Node".into()
 	}
 
 	fn impl_version() -> String {
@@ -39,7 +39,7 @@ impl SubstrateCli for Cli {
 	}
 
 	fn support_url() -> String {
-		"docs.reef.finance".into()
+		"docs.dust.llc".into()
 	}
 
 	fn copyright_start_year() -> i32 {
@@ -61,7 +61,7 @@ impl SubstrateCli for Cli {
 	}
 
 	fn native_runtime_version(_: &Box<dyn ChainSpec>) -> &'static RuntimeVersion {
-		&reef_runtime::VERSION
+		&dust_runtime::VERSION
 	}
 }
 

@@ -5,7 +5,7 @@ use frame_support::{
 	assert_noop, assert_ok,
 	traits::{GenesisBuild, OnFinalize, OnInitialize},
 };
-use reef_runtime::{
+use dust_runtime::{
 	get_all_module_accounts,
 	AccountId, AuthoritysOriginId,
 	Balance, Balances, Call,
@@ -172,7 +172,7 @@ fn test_authority_module() {
 		.balances(vec![
 			(
 				AccountId::from(ALICE),
-				CurrencyId::Token(TokenSymbol::RUSD),
+				CurrencyId::Token(TokenSymbol::USDD),
 				amount(1000),
 			),
 		])
@@ -205,7 +205,7 @@ fn test_authority_module() {
 			// // DSWF transfer
 			// let transfer_call = Call::Currencies(module_currencies::Call::transfer(
 			// 	AccountId::from(BOB).into(),
-			// 	CurrencyId::Token(TokenSymbol::RUSD),
+			// 	CurrencyId::Token(TokenSymbol::USDD),
 			// 	amount(500),
 			// ));
 			// let dswf_call = Call::Authority(orml_authority::Call::dispatch_as(
@@ -240,13 +240,13 @@ fn test_authority_module() {
 			// run_to_block(2);
 			// assert_eq!(
 			// 	Currencies::free_balance(
-			// 		CurrencyId::Token(TokenSymbol::RUSD),
+			// 		CurrencyId::Token(TokenSymbol::USDD),
 			// 		&DSWFModuleId::get().into_account()
 			// 	),
 			// 	amount(500)
 			// );
 			// assert_eq!(
-			// 	Currencies::free_balance(CurrencyId::Token(TokenSymbol::RUSD), &AccountId::from(BOB)),
+			// 	Currencies::free_balance(CurrencyId::Token(TokenSymbol::USDD), &AccountId::from(BOB)),
 			// 	amount(500)
 			// );
             //
@@ -397,7 +397,7 @@ fn test_evm_accounts_module() {
 	ExtBuilder::default()
 		.balances(vec![(
 			bob_account_id(),
-			CurrencyId::Token(TokenSymbol::REEF),
+			CurrencyId::Token(TokenSymbol::DUST),
 			amount(1000),
 		)])
 		.build()
@@ -440,13 +440,13 @@ fn test_evm_accounts_module() {
 fn test_evm_module() {
 	ExtBuilder::default()
 		.balances(vec![
-			(alice_account_id(), CurrencyId::Token(TokenSymbol::REEF), amount(1 * MILLI_REEF)),
-			(bob_account_id(), CurrencyId::Token(TokenSymbol::REEF), amount(1 * MILLI_REEF)),
+			(alice_account_id(), CurrencyId::Token(TokenSymbol::DUST), amount(1 * MILLI_DUST)),
+			(bob_account_id(), CurrencyId::Token(TokenSymbol::DUST), amount(1 * MILLI_DUST)),
 		])
 		.build()
 		.execute_with(|| {
-			assert_eq!(Balances::free_balance(alice_account_id()), amount(1 * MILLI_REEF));
-			assert_eq!(Balances::free_balance(bob_account_id()), amount(1 * MILLI_REEF));
+			assert_eq!(Balances::free_balance(alice_account_id()), amount(1 * MILLI_DUST));
+			assert_eq!(Balances::free_balance(bob_account_id()), amount(1 * MILLI_DUST));
 
 			let _alice_address = EvmAccounts::eth_address(&alice());
 			let bob_address = EvmAccounts::eth_address(&bob());
@@ -465,15 +465,15 @@ fn test_evm_module() {
 
 			// test EvmAccounts Lookup
 			assert_eq!(Balances::free_balance(alice_account_id()), 999999999999989633000000000000000);
-			assert_eq!(Balances::free_balance(bob_account_id()), amount(1 * MILLI_REEF));
+			assert_eq!(Balances::free_balance(bob_account_id()), amount(1 * MILLI_DUST));
 			let to = EvmAccounts::eth_address(&alice());
 			assert_ok!(Currencies::transfer(
 				Origin::signed(bob_account_id()),
 				MultiAddress::Address20(to.0),
-				CurrencyId::Token(TokenSymbol::REEF),
-				amount(10 * MICRO_REEF)
+				CurrencyId::Token(TokenSymbol::DUST),
+				amount(10 * MICRO_DUST)
 			));
 			assert_eq!(Balances::free_balance(alice_account_id()), 1009999999999989633000000000000000);
-			assert_eq!(Balances::free_balance(bob_account_id()), amount(1 * MILLI_REEF) - amount(10 * MICRO_REEF));
+			assert_eq!(Balances::free_balance(bob_account_id()), amount(1 * MILLI_DUST) - amount(10 * MICRO_DUST));
 		});
 }

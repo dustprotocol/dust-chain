@@ -181,7 +181,7 @@ impl<T: Config> Pallet<T> {
 	// Constructs the message that Ethereum RPC's `personal_sign` and `eth_sign`
 	// would sign.
 	pub fn ethereum_signable_message(what: &[u8], extra: &[u8]) -> Result<Vec<u8>, DispatchError> {
-		let prefix = b"reef evm:";
+		let prefix = b"dust evm:";
 		let mut l = prefix.len().checked_add(what.len()).and_then(|sum| sum.checked_add(extra.len())).ok_or(Error::<T>::NumOverflow)?;
 		let mut rev = Vec::new();
 		while l > 0 {

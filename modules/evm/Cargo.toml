@@ -34,7 +34,7 @@ sp-std = { git = "https://github.com/paritytech/substrate", default-features = f
 orml-traits = { path = "../../orml/traits", default-features = false }
 
 support = { package = "module-support", path = "../support", default-features = false }
-primitives = { package = "reef-primitives", path = "../../primitives", default-features = false }
+primitives = { package = "dust-primitives", path = "../../primitives", default-features = false }
 
 [dev-dependencies]
 env_logger = "0.7"

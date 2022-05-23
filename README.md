@@ -1,12 +1,12 @@
-## Reef Chain
-Reef chain is written in [Rust](https://www.rust-lang.org/). A basic familiarity with Rust tooling is required.
+## Dust Chain
+Dust chain is written in [Rust](https://www.rust-lang.org/). A basic familiarity with Rust tooling is required.
 
-To learn more about Reef chain, please refer to **[Documentation](https://docs.reef.finance/)**.
+To learn more about Dust chain, please refer to **[Documentation](https://docs.dust.llc/)**.
 
 ### Clone
 To clone the repo with its submodules run:
 ```bash
-git clone --recursive https://github.com/reef-defi/reef-chain
+git clone --recursive https://github.com/dust-defi/dust-chain
 ```
 
 ### Rust Setup
@@ -44,19 +44,19 @@ make build
 This command will start the single-node development chain with persistent state:
 
 ```bash
-./target/release/reef-node --dev
+./target/release/dust-node --dev
 ```
 
 Purge the development chain's state:
 
 ```bash
-./target/release/reef-node purge-chain --dev
+./target/release/dust-node purge-chain --dev
 ```
 
 Start the development chain with detailed logging:
 
 ```bash
-RUST_LOG=debug RUST_BACKTRACE=1 ./target/release/reef-node -lruntime=debug --dev
+RUST_LOG=debug RUST_BACKTRACE=1 ./target/release/dust-node -lruntime=debug --dev
 ```
 
 ### Run tests
@@ -79,7 +79,7 @@ cargo test -p module-poc --all-features
 
 Run the module benchmarks and generate the weights file:
 ```
-./target/release/reef-node benchmark \
+./target/release/dust-node benchmark \
     --chain=dev \
     --steps=50 \
     --repeat=20 \
@@ -102,7 +102,7 @@ make debug
 Once the project has been built, the following command can be used to explore all parameters and subcommands:
 
 ```bash
-./target/release/reef-node -h
+./target/release/dust-node -h
 ```
 
 ### Release builds
@@ -129,7 +129,7 @@ Build the wasm runtime with:
 make wasm
 ```
 
-### Fork reef-chain
+### Fork dust-chain
 
 You can create a fork of a live chain (testnet / mainnet) for development purposes.
 
