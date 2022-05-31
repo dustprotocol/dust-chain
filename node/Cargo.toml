@@ -1,5 +1,5 @@
 [package]
-authors = ['Reef Finance <https://reef.finance>']
+authors = ['Dust Developers <https://dust.llc>', 'Reef Finance <https://reef.finance>']
 build = 'build.rs'
 description = 'Dust Substrate Node'
 edition = '2018'

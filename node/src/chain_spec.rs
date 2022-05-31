@@ -261,49 +261,49 @@ pub fn mainnet_config() -> Result<ChainSpec, String> {
 			// authority-discovery
 			vec![
 				(
-					hex!["6c08c1f8e0cf1e200b24b43fca4c4e407b963b6b1e459d1aeff80c566a1da469"].into(),
-					hex!["864eff3160ff8609c030316867630850a9d6e35c47d3efe54de44264fef7665e"].into(),
-					hex!["dc41d9325da71d90806d727b826d125cd523da28eb39ab048ab983d7bb74fb32"].unchecked_into(),
-					hex!["8a688a748fd39bedaa507c942600c40478c2082dee17b8263613fc3c086b0c53"].unchecked_into(),
-					hex!["3a4e80c48718f72326b49c4ae80199d35285643751e75a743f30b7561b538676"].unchecked_into(),
-					hex!["68d39d0d386ed4e9dd7e280d62e7dc9cf61dc508ef25efb74b6d740fa4dde463"].unchecked_into(),
+					hex!["daa5961f930982e5253aa46ce78572b6a43cc754fa0ed4c34a088051ceffdc1e"].into(),
+					hex!["aa753630bed0be36a4d96624bf96d7f50695c52cb5d86e09b49935fe3b66f02a"].into(),
+					hex!["5636d0cd27e3f0ae9ed8940b449bd93786252c5076525ef0aae6f7e837ffc240"].unchecked_into(),
+					hex!["d6815d35696c72625583e8ac7efc34a0ce8a9d189860076a8a7e4873ed2c850b"].unchecked_into(),
+					hex!["6a13802d453e915729f3effafee1e52cb2ce9133c7da970efc47b23001049c0a"].unchecked_into(),
+					hex!["0c895363573a60f5eb8f068476b1c49d2445b7c172f1918e9e04dc07d517de1f"].unchecked_into(),
 				),
 				(
-					hex!["5c22097b5c8b5912ce28b72ba4de52c3da8aca9379c748c1356a6642107d4c4a"].into(),
-					hex!["543fd4fd9a284c0f955bb083ae6e0fe7a584eb6f6e72b386071a250b94f99a59"].into(),
-					hex!["f15a651be0ea0afcfe691a118ee7acfa114d11a27cf10991ee91ea97942d2135"].unchecked_into(),
-					hex!["70e74bed02b733e47bc044da80418fd287bb2b7a0c032bd211d7956c68c9561b"].unchecked_into(),
-					hex!["724cefffeaa10a44935a973511b9427a8c3c4fb08582afc4af8bf110fe4aac4b"].unchecked_into(),
-					hex!["a068435c438ddc61b1b656e3f61c876e109706383cf4e27309cc1e308f88b86f"].unchecked_into(),
+					hex!["804bf8c7e697f48fef8ad06cdd8f473df122edf4290103976febcb109df29a04"].into(),
+					hex!["68e704ecb8b6ead143ccc85668f38f8cc406b04ebf7227936284aa46d4923078"].into(),
+					hex!["fc7473294f2919499b73776446ae6ddbb4b467a05f58695b81c43bf41e034323"].unchecked_into(),
+					hex!["1c64f4cda26f97da46b18f8102c59f141a846c74659307881c80837bb92d2e41"].unchecked_into(),
+					hex!["189b988669403999c4c9ba1cb76f9429d873f0d3956bbc869f1f36530bdedf61"].unchecked_into(),
+					hex!["caf7fcc0a4f36c961e9de08fc22a1916c59177c8902f3f696f751c4278c66d54"].unchecked_into(),
 				),
 				(
-					hex!["a67f388c1b8d68287fb3288b5aa36f069875c15ebcb9b1e4e62678aad6b24b44"].into(),
-					hex!["ec912201d98911842b1a8e82983f71f2116dd8b898798ece4e1d210590de7d60"].into(),
-					hex!["347f5342875b9847ec089ca723c1c09cc532e53dca4b940a6138040025d94eb9"].unchecked_into(),
-					hex!["64841d2d124e1b1dd5485a58908ab244b296b184ae645a0c103adcbcc565f070"].unchecked_into(),
-					hex!["50a3452ca93800a8b660d624521c240e5cb20a47a33d23174bb7681811950646"].unchecked_into(),
-					hex!["7a0caeb50fbcd657b8388adfaeca41a2ae3e85b8916a2ce92761ce1a4db89035"].unchecked_into(),
+					hex!["441f95d1a36b2eea7382bd326325efe2678bcacbeae34de740ffbb90b693c735"].into(),
+					hex!["0ca26fbb87347b36feba5a25193cb9604821ee446f2321c7909f42b42d54b54e"].into(),
+					hex!["0a8a5bb71d7288d135f38f6815aaa35b2690835e0e1ce3eaa431250b4a33323a"].unchecked_into(),
+					hex!["ea29d36ccc943ad1605c68fe2524592cb3bef4b0b3e7721e6af69674fe058466"].unchecked_into(),
+					hex!["9ee08f9ccf7d75c5a51db00e6b6c359857e23b0ddfbf32fab55ebf1348872d11"].unchecked_into(),
+					hex!["36719e3625298854880ade3a3a19bd69384550967939b5988d8831b3a7b11128"].unchecked_into(),
 				),
 			],
 			// Sudo
-			hex!["9c48c0498bdf1d716f4544fc21f050963409f2db8154ba21e5233001202cbf08"].into(),
+			hex!["bc30713c8c949b55557d600b0e9e3ed26e9eb60f031404f953281750c6ec4e2d"].into(),
 			// Endowed accounts
 			vec![
 				// Investors
-				(hex!["3c483acc759b79f8b12fa177e4bdfa0448a6ea03c389cf4db2b4325f0fc8f84a"].into(), 4_340_893_656 as u128),
+				(hex!["d8999d2094d6f7a7a5cc61932b51df2786c21d1c1058ec0eebbd98635c9a8e21"].into(), 4_340_893_656 as u128),
 				// Liquidity bridge reserves
-				(hex!["5adebb35eb317412b58672db0434e4b112fcd27abaf28039f07c0db155b26650"].into(), 2_000_000_000 as u128),
+				(hex!["feecdaa17e46d038e885fa088bc9b07b060e11fcd70b1729dbeaf9294cdeca49"].into(), 2_000_000_000 as u128),
 				// Lockup & core nominators
-				(hex!["746db342d3981b230804d1a187245e565f8eb3a2897f83d0d841cc52282e324c"].into(), 500_000_000 as u128),
-				(hex!["da512d1335a62ad6f79baecfe87578c5d829113dc85dbb984d90a83f50680145"].into(), 500_000_000 as u128),
-				(hex!["b493eacad9ca9d7d8dc21b940966b4db65dfbe01084f73c1eee2793b1b0a1504"].into(), 500_000_000 as u128),
-				(hex!["849cf6f8a093c28fd0f699b47383767b0618f06aad9df61c4a9aff4af5809841"].into(), 250_000_000 as u128),
-				(hex!["863bd6a38c7beb526be033068ac625536cd5d8a83cd51c1577a1779fab41655c"].into(), 250_000_000 as u128),
-				(hex!["c2d2d7784e9272ef1785f92630dbce167a280149b22f2ae3b0262435e478884d"].into(), 250_000_000 as u128),
+				(hex!["6e96d4d1c70847745aa40e07694867eb4eda164a1cc3be336439aaa416e4e642"].into(), 500_000_000 as u128),
+				(hex!["dad98c159046c5be8ea8781863add146a24eda17f609bfa3075e3ec7f519d070"].into(), 500_000_000 as u128),
+				(hex!["f0a7b25715e5cfc9b1573033a1959e0488a8739ed5e7cd56ad803abf135e687e"].into(), 500_000_000 as u128),
+				(hex!["029ddde77f1a64af663e40494369feb06402df9c5b2b7bcb8547ecbb4424fe54"].into(), 250_000_000 as u128),
+				(hex!["98f84017133351d6769c227a6dc1d504ffaa9de4b287ce37ce30fc944221fb74"].into(), 250_000_000 as u128),
+				(hex!["1e291d5ba71592e71c5f1d32f3e8d4e96fd895c67291fa3836b36fcf5689e049"].into(), 250_000_000 as u128),
 				// Sudo
-				(hex!["9c48c0498bdf1d716f4544fc21f050963409f2db8154ba21e5233001202cbf08"].into(), 100_000_000 as u128),
+				(hex!["bc30713c8c949b55557d600b0e9e3ed26e9eb60f031404f953281750c6ec4e2d"].into(), 100_000_000 as u128),
 				// Developer pool & faucet
-				(hex!["1acc4a5c6361770eac4da9be1c37ac37ea91a55f57121c03240ceabf0b7c1c5e"].into(), 10_000_000 as u128),
+				(hex!["9468fc327624243168529b89eed8254b893364a3ae35fe2e31566ab9e4266e0b"].into(), 10_000_000 as u128),
 			],
 		),
 		// Bootnodes
